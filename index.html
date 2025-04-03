@@ -5,14 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora de Juros</title>
     <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
         body {
             font-family: Arial, sans-serif;
-            background-color: #f0f8ff;
+            background-image: url(par.png);
+            background-color: #808080;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
+            min-height: 100vh;
+            padding: 20px;
+            text-align: center;
         }
         .container {
             background-color: #ffffff;
@@ -20,8 +27,7 @@
             border-radius: 10px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
             width: 100%;
-            max-width: 350px;
-            text-align: center;
+            max-width: 400px;
         }
         h1 {
             color: #333;
@@ -34,29 +40,28 @@
             color: #333;
             display: block;
             text-align: left;
-            margin-left: 5px;
         }
         input, select {
             width: 100%;
-            padding: 10px;
-            margin: 10px 0;
+            padding: 12px;
+            margin: 8px 0;
             border: 1px solid #ccc;
             border-radius: 5px;
-            font-size: 14px;
-            box-sizing: border-box; /* Para garantir que o padding não ultrapasse a largura */
+            font-size: 16px;
         }
         button {
             width: 100%;
-            padding: 10px;
-            background-color: #4CAF50;
+            padding: 12px;
+            background-color: #4572a0;
             color: white;
             border: none;
             border-radius: 5px;
             font-size: 16px;
             cursor: pointer;
+            margin-top: 10px;
         }
         button:hover {
-            background-color: #45a049;
+            background-color: #355a80;
         }
         .resultado {
             margin-top: 20px;
@@ -104,7 +109,6 @@
         }
 
         if (tipo === "simples") {
-            // Cálculo de Juros Simples
             var juros = (principal * taxa * tempo) / 100;
             var total = principal + juros;
 
@@ -113,7 +117,6 @@
                 <p><strong>Valor Total: R$ ${total.toFixed(2)}</strong></p>
             `;
         } else if (tipo === "composto") {
-            // Cálculo de Juros Compostos
             var montante = principal * Math.pow((1 + taxa / 100), tempo);
             var jurosComposto = montante - principal;
 
@@ -126,3 +129,4 @@
 </script>
 
 </body>
+</html>
